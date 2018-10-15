@@ -26,7 +26,7 @@ const state = {
 
 export const mutations = {
   [SET_HEADERS] (state, payload) {
-    state.headers = payload.headers
+    state.headers = payload.rows
   }  
 }
 

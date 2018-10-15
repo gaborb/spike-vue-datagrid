@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld v-bind:headers="headers" v-bind:headerModel="headerModel" v-on:headers-updated="headersUpdated">
+    <DataGrid v-bind:rows="headers" v-bind:rowModel="rowModel" v-on:rows-updated="headersUpdated">
       <template slot="header">
         <div class="column is-5">
           <div class="field">
@@ -23,12 +23,12 @@
           </div>
         </div>
       </template>
-      <template slot-scope="{ header, isLast, removeHandler }">
+      <template slot-scope="{ row, isLast, removeHandler }">
         <div class="column is-5">
           <div class="field">
             <label class="label is-sr-only is-hidden">Key</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Text input" v-model="header.key">
+              <input class="input" type="text" placeholder="Text input" v-model="row.key">
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
           <div class="field">
             <label class="label is-sr-only is-hidden">Value</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Text input" v-model="header.value">
+              <input class="input" type="text" placeholder="Text input" v-model="row.value">
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
             <label class="label is-sr-only is-hidden">Include</label>
             <div class="control">
               <label class="checkbox">
-                <input type="checkbox" v-model="header.include">
+                <input type="checkbox" v-model="row.include">
               </label>
             </div>
           </div>
@@ -56,23 +56,24 @@
           </button>
         </div>
       </template>
-    </HelloWorld>
+    </DataGrid>
+    <pre>headers: {{ headers }}</pre>
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import HelloWorld from './components/HelloWorld.vue'
+import DataGrid from './components/DataGrid.vue'
 import { SET_HEADERS } from './mutation-types';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    DataGrid
   },
   data: function () {
     return {
-      headerModel: { key: null, value: null, include: null }
+      rowModel: { key: null, value: null, include: null }
     }
   },
   computed: {
