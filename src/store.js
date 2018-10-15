@@ -8,7 +8,18 @@ const state = {
   headers: [
     {
       key: 'Content-Type', 
-      value: 'application/json'
+      value: 'application/json',
+      include: false
+    },
+    {
+      key: 'Accept', 
+      value: 'application/json',
+      include: true
+    },
+    {
+      key: 'Host', 
+      value: 'example.com',
+      include: true
     }
   ]
 }

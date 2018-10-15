@@ -28,3 +28,9 @@ $radius: 0;
 // @import "../node_modules/bulma/bulma";
 @import "bulma";
 
+label.checkbox {
+    line-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+}
