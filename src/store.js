@@ -9,17 +9,17 @@ const state = {
     {
       key: 'Content-Type', 
       value: 'application/json',
-      include: false
+      _include: false
     },
     {
       key: 'Accept', 
       value: 'application/json',
-      include: true
+      _include: true
     },
     {
       key: 'Host', 
       value: 'example.com',
-      include: true
+      _include: true
     }
   ]
 }

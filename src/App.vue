@@ -41,11 +41,11 @@
           </div>
         </div>
         <div class="column is-1">
-          <div class="field">
+          <div v-if="!isLast" class="field">
             <label class="label is-sr-only is-hidden">Include</label>
             <div class="control">
               <label class="checkbox">
-                <input type="checkbox" v-model="row.include">
+                <input type="checkbox" v-model="row._include">
               </label>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default {
   },
   data: function () {
     return {
-      rowModel: { key: null, value: null, include: null }
+      rowModel: { key: null, value: null }
     }
   },
   computed: {
